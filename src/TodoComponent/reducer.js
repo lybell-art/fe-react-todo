@@ -1,6 +1,6 @@
 function addValue(array, value, id)
 {
-  return [...array, {id: id ?? array.length+1, value, completed: false}]
+  return [...array, {id: id ?? array.length+1, title:value, completed: false}]
 }
 function moveValue(array, target, afterTarget)
 {
