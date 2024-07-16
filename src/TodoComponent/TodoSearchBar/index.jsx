@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import style from "./style.module.scss";
 
 export default function TodoSearchBar({addData})
 {
@@ -23,14 +24,17 @@ export default function TodoSearchBar({addData})
 	}
 
 	return <div
+		className={style.container}
 		onMouseEnter={()=>setRecentSearchVisiblity(true)} 
 		onMouseLeave={()=>setRecentSearchVisiblity(false)}
 	>
-		<input type="text" placeholder="할일을 입력하세요." ref={inputRef}/>
-		<button type="button" onClick={onClick}>등록</button>
-		<ul>
+		<input className={style.input} type="text" placeholder="할일을 입력하세요." ref={inputRef}/>
+		<button className={style.submitButton} type="button" onClick={onClick}>등록</button>
+		<ul className={`${style.recentList} ${recentSearchVisiblity ? "" : style.hidden}`}>
 			{recentSearchState.length > 0 && recentSearchState.map( ({keyword, id})=>{
-				return <li key={id}>{keyword}</li>
+				return <li className={style.recentListItem} key={id} onClick={()=>{
+					inputRef.current.value = keyword;
+				}}>{keyword}</li>
 			} )}
 		</ul>
 	</div>
