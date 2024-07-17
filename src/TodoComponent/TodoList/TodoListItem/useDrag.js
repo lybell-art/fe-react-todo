@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 
+const voidImage = new Image();
+voidImage.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAAtJREFUGFdjYAACAAAFAAGq1chRAAAAAElFTkSuQmCC";
+
 function useDrag() {
 	const startPosition = useRef({ x: 0, y: 0 });
 	const isDragging = useRef(false);
@@ -9,6 +12,7 @@ function useDrag() {
 		startPosition.current.x = e.pageX;
 		startPosition.current.y = e.pageY;
 		isDragging.current = true;
+		e.dataTransfer.setDragImage(voidImage, 0, 0);
 	}
 	function onDragging(e) {
 		if (!isDragging.current) return;
@@ -17,6 +21,7 @@ function useDrag() {
 		setStyle({
 			transform: `translate(${offsetX}px, ${offsetY}px)`,
 			pointerEvents: "none",
+			zIndex: 100
 		});
 	}
 	function onDragEnd(e) {
