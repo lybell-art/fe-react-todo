@@ -5,17 +5,17 @@ import fetchData from "./common/fetchData.js";
 import TodoComponent from "./TodoComponent";
 
 function App() {
-  const resource = fetchData("/");
-  return (
-    <>
-      <ErrorBoundary fallback={<div>Error</div>}>
-        <Suspense fallback={<div>Loading...</div>}>
-          <TodoComponent resource={resource} />
-        </Suspense>
-      </ErrorBoundary>
-      <div>Logger ...</div>
-    </>
-  );
+	const resource = fetchData("/");
+	return (
+		<>
+			<ErrorBoundary fallback={<div>Error</div>}>
+				<Suspense fallback={<div>Loading...</div>}>
+					<TodoComponent resource={resource} />
+				</Suspense>
+			</ErrorBoundary>
+			<div>Logger ...</div>
+		</>
+	);
 }
 
 export default App;
