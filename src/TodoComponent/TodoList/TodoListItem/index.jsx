@@ -32,6 +32,6 @@ export default function TodoListItem({data, deleteData, checkData, modifyData})
 		onDragLeave={onDragEnd}
 	>
 		<input className={style.title} type="text" value={title} onChange={onChange} readOnly={true} />
-		<button className={style.button}>삭제</button>
+		<button className={style.button} onClick={()=>deleteData(data.id)}>삭제</button>
 	</li>
 }
