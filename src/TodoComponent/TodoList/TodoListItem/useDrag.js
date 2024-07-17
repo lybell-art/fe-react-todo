@@ -8,16 +8,16 @@ function useDrag()
 
 	function onDragStart(e)
 	{
-		startPosition.current.x = e.clientX;
-		startPosition.current.y = e.clientY;
+		startPosition.current.x = e.pageX;
+		startPosition.current.y = e.pageY;
 		isDragging.current = true;
 		setStyle({transform: "translate(0px, 0px)"});
 	}
 	function onDragging(e)
 	{
 		if(!isDragging.current) return;
-		const offsetX = e.clientX - startPosition.current.x;
-		const offsetY = e.clientY - startPosition.current.y;
+		const offsetX = e.pageX - startPosition.current.x;
+		const offsetY = e.pageY - startPosition.current.y;
 		setStyle({transform: `translate(${offsetX}px, ${offsetY}px)`, pointerEvents: "none"});
 	}
 	function onDragEnd(e)
