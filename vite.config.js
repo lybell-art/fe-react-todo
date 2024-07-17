@@ -9,8 +9,6 @@ export default defineConfig({
   base: "./",
   plugins: [react()],
   resolve: {
-    alias: [
-      { find: "@", replacement: resolve(__dirname, "src") },
-    ]
+    alias: [{ find: "@", replacement: resolve(__dirname, "src") }],
   },
 });
