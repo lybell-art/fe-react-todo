@@ -7,7 +7,9 @@ export default function TodoListDropArea({id, moveData})
 	function onDrop(e)
 	{
 		e.preventDefault();
-		console.log(e.dataTransfer.getData("text"));
+		const dragTarget = e.dataTransfer.getData("text");
+		//console.log(e.dataTransfer.getData("text"));
+		moveData(dragTarget, id);
 	}
 
 	return <div onDragOver={onDragOver} onDrop={onDrop}>----(개발중임)----</div>

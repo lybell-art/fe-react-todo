@@ -12,7 +12,7 @@ export default function TodoComponent({resource}) {
   }
   function moveData(key, afterTarget)
   {
-    if(value === afterTarget) return;
+    if(key === afterTarget) return;
     setData( oldData=>moveValue(oldData, key, afterTarget));
   }
   function deleteData(key)

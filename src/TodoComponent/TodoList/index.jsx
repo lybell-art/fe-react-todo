@@ -6,6 +6,7 @@ import style from "./style.module.scss";
 export default function TodoList({data, deleteData, moveData, checkData, modifyData})
 {
 	return <ul className={style.list}>
+		<TodoListDropArea id={null} moveData={moveData} />
 		{data.map( (item)=>{
 			return <Fragment key={item.id}>
 				<TodoListItem data={item} 

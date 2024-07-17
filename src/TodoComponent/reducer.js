@@ -1,21 +1,21 @@
 function addValue(array, value, id)
 {
-  return [...array, {id: id ?? array.length+1, title:value, completed: false}]
+  return [...array, {id: id ?? ""+array.length+1, title:value, completed: false}]
 }
 function moveValue(array, target, afterTarget)
 {
   if(target === afterTarget) return;
 
   const newData = [];
-  const data = array.find( ({id})=>id === value );
+  const data = array.find( ({id})=>id === target );
 
-  if(afterTarget === null) return [data, ...array];
+  if(afterTarget === null) return [data, ...array.filter( ({id})=>id !== target )];
 
   for(let item of array)
   {
     if(item.id === target) continue;
-    if(item.id === afterTarget) newData.push(data);
     newData.push(item);
+    if(item.id === afterTarget) newData.push(data);
   }
   return newData;
 }
