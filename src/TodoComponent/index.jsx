@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import {
 	addValue,
 	moveValue,
@@ -9,7 +9,8 @@ import {
 import TodoSearchBar from "./TodoSearchBar";
 import TodoList from "./TodoList";
 
-export default function TodoComponent({ resource, addLog }) {
+function TodoComponent({ resource, addLog }) {
+	console.log("rerendered");
 	const [data, setData] = useState(resource());
 	const findTitle = key=>data.find(({id})=>id === key)?.title;
 
@@ -49,3 +50,5 @@ export default function TodoComponent({ resource, addLog }) {
 		</div>
 	);
 }
+
+export default memo(TodoComponent);

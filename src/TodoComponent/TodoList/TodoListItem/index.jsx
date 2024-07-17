@@ -19,8 +19,9 @@ export default function TodoListItem({
 		onPointerUp,
 		preventHoldClick,
 	} = useHoldInputLock();
-	function onClick() {
+	function onClick(e) {
 		if (!readOnly) return;
+		if (e.target.tagName === "BUTTON") return;
 		checkData(data.id, !data.completed);
 	}
 

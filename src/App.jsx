@@ -1,19 +1,22 @@
-import { Suspense } from "react";
+import { useMemo, Suspense } from "react";
 import "./App.css";
 import ErrorBoundary from "./common/ErrorBoundary.jsx";
 import fetchData from "./common/fetchData.js";
 import TodoComponent from "./TodoComponent";
+import useLogger from "./Logger/useLogger.jsx";
 
 function App() {
-	const resource = fetchData("/");
+	const resource = useMemo( ()=>fetchData("/"), []);
+	const {addLog, Logger} = useLogger();
+
 	return (
 		<>
 			<ErrorBoundary fallback={<div>Error</div>}>
 				<Suspense fallback={<div>Loading...</div>}>
-					<TodoComponent resource={resource} addLog={console.log} />
+					<TodoComponent resource={resource} addLog={addLog} />
 				</Suspense>
 			</ErrorBoundary>
-			<div>Logger ...</div>
+			<Logger />
 		</>
 	);
 }
