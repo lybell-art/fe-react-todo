@@ -9,7 +9,6 @@ function useDrag() {
 		startPosition.current.x = e.pageX;
 		startPosition.current.y = e.pageY;
 		isDragging.current = true;
-		setStyle({ transform: "translate(0px, 0px)" });
 	}
 	function onDragging(e) {
 		if (!isDragging.current) return;

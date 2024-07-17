@@ -10,7 +10,7 @@ function App() {
 		<>
 			<ErrorBoundary fallback={<div>Error</div>}>
 				<Suspense fallback={<div>Loading...</div>}>
-					<TodoComponent resource={resource} />
+					<TodoComponent resource={resource} addLog={console.log} />
 				</Suspense>
 			</ErrorBoundary>
 			<div>Logger ...</div>

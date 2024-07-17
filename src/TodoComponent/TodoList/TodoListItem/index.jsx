@@ -46,14 +46,14 @@ export default function TodoListItem({
 	const [title, setTitle] = useState(data.title);
 	const syncData = useMemo(
 		() =>
-			debounce((data) => {
-				modifyData(data.id, data.title);
+			debounce((newTitle) => {
+				modifyData(data.id, newTitle);
 			}, 500),
-		[modifyData],
+		[modifyData, data],
 	);
 	function onChange(e) {
 		setTitle(e.target.value);
-		syncData(data);
+		syncData(e.target.value);
 	}
 
 	return (
