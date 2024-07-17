@@ -6,7 +6,7 @@ export default function TodoSearchBar({addData})
 	const inputRef = useRef(null);
 	const [recentSearchState, setRecentSearchState] = useState([]);
 	const [recentSearchVisiblity, setRecentSearchVisiblity] = useState(false);
-	function addSearchBar(keyword)
+	function addSearchLog(keyword)
 	{
 		setRecentSearchState( (oldValue)=>{
 			const newValue = {keyword, id:keyword + Date.now()}
@@ -19,7 +19,8 @@ export default function TodoSearchBar({addData})
 		if(!inputRef.current) return;
 		const inputData = inputRef.current.value;
 		if(inputData === "") return;
-		addSearchBar(inputData);
+		inputRef.current.value = "";
+		addSearchLog(inputData);
 		addData(inputData);
 	}
 

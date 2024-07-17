@@ -11,6 +11,7 @@ function useDrag()
 		startPosition.current.x = e.clientX;
 		startPosition.current.y = e.clientY;
 		isDragging.current = true;
+		setStyle({transform: "translate(0px, 0px)"});
 	}
 	function onDragging(e)
 	{
