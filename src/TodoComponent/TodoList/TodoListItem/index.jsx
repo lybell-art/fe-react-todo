@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import debounce from "@/common/debounce.js";
+import style from "./style.module.scss";
 
 export default function TodoListItem({data, deleteData, checkData, modifyData})
 {
@@ -13,8 +14,8 @@ export default function TodoListItem({data, deleteData, checkData, modifyData})
 		syncData(data);
 	}
 
-	return <li>
-		<input type="text" value={title} onChange={onChange} />
-		<button>삭제</button>
+	return <li className={`${style.container} ${data.completed ? style.completed : ""}`} draggable="true">
+		<input className={style.title} type="text" value={title} onChange={onChange} readOnly={true} />
+		<button className={style.button}>삭제</button>
 	</li>
 }
