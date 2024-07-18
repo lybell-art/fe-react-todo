@@ -11,15 +11,13 @@ function useLogger() {
 		addLog,
 		Logger() {
 			return (
-				<>
-					<ul>
-						{logs.map((log, i) => (
-							<li className={style.item} key={log + i}>
-								{log}
-							</li>
-						))}
-					</ul>
-				</>
+				<ul>
+					{logs.map((log, i) => (
+						<li className={style.item} key={log + i}>
+							{log}
+						</li>
+					))}
+				</ul>
 			);
 		},
 	};

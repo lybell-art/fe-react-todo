@@ -13,7 +13,9 @@ function LoggerContainer({ children }) {
 				열기
 			</button>
 			<div className={`${style.container} ${opened ? "" : style.closed}`}>
-				{children}
+				<div className={style.innerContainer}>
+					{children}
+				</div>
 				<div className={style.backdrop} onClick={() => setOpened(false)}>
 					hello
 				</div>

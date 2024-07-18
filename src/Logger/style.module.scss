@@ -1,4 +1,9 @@
 .container {
+	position: relative;
+	z-index: 100;
+}
+
+.innerContainer {
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -6,14 +11,21 @@
 	width: 480px;
 	max-width: 90%;
 	height: 100vh;
+	overflow-y: scroll;
+	transition: transform 0.4s;
 }
 
-.container.closed {
+.closed .innerContainer {
 	transform: translateX(100%);
 }
 
 .item {
-	
+	width: 100%;
+	height: 32px;
+}
+
+.item:not(:last-child) {
+	border-bottom: 1px solid #f0f0f0;
 }
 
 .button {
@@ -27,4 +39,20 @@
 	background-color: #24adaf;
 	box-shadow: 2px 2px 4px #0003;
 	cursor: pointer;
+}
+
+.backdrop {
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background-color: #0009;
+	transition: opacity 0.4s;
+}
+
+.closed .backdrop {
+	opacity: 0;
+	pointer-events: none;
 }
