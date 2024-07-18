@@ -3,11 +3,12 @@ import "./App.css";
 import ErrorBoundary from "./common/ErrorBoundary.jsx";
 import fetchData from "./common/fetchData.js";
 import TodoComponent from "./TodoComponent";
+import LoggerContainer from "./Logger/LoggerContainer.jsx";
 import useLogger from "./Logger/useLogger.jsx";
 
 function App() {
-	const resource = useMemo( ()=>fetchData("/"), []);
-	const {addLog, Logger} = useLogger();
+	const resource = useMemo(() => fetchData("/"), []);
+	const { addLog, Logger } = useLogger();
 
 	return (
 		<>
@@ -16,7 +17,9 @@ function App() {
 					<TodoComponent resource={resource} addLog={addLog} />
 				</Suspense>
 			</ErrorBoundary>
-			<Logger />
+			<LoggerContainer>
+				<Logger />
+			</LoggerContainer>
 		</>
 	);
 }

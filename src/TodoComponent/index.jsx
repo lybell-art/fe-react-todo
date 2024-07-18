@@ -11,7 +11,7 @@ import TodoList from "./TodoList";
 
 function TodoComponent({ resource, addLog }) {
 	const [data, setData] = useState(resource());
-	const findTitle = key=>data.find(({id})=>id === key)?.title;
+	const findTitle = (key) => data.find(({ id }) => id === key)?.title;
 
 	function addData(title) {
 		setData((oldData) => addValue(oldData, title));
@@ -49,4 +49,6 @@ function TodoComponent({ resource, addLog }) {
 	);
 }
 
-export default memo(TodoComponent);
+const MemorizedTodoComponent = memo(TodoComponent);
+
+export default MemorizedTodoComponent;

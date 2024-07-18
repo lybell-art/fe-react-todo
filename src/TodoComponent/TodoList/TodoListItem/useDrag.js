@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 
 const voidImage = new Image();
-voidImage.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAAtJREFUGFdjYAACAAAFAAGq1chRAAAAAElFTkSuQmCC";
+voidImage.src =
+	"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAAtJREFUGFdjYAACAAAFAAGq1chRAAAAAElFTkSuQmCC";
 
 function useDrag() {
 	const startPosition = useRef({ x: 0, y: 0 });
@@ -21,7 +22,7 @@ function useDrag() {
 		setStyle({
 			transform: `translate(${offsetX}px, ${offsetY}px)`,
 			pointerEvents: "none",
-			zIndex: 100
+			zIndex: 100,
 		});
 	}
 	function onDragEnd(e) {
