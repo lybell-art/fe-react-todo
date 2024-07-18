@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import style from "./style.module.scss";
 
 function useLogger()
 {
@@ -11,9 +12,13 @@ function useLogger()
 		addLog,
 		Logger()
 		{
-			return <ul>
-				{logs.map( (log, i)=><li key={log + i}>{log}</li> )}
-			</ul>;
+			const [opened, setOpened] = useState(false);
+			return <>
+				<button className={style.button} onClick={()=>setOpened(open=>!open)}>열기</button>
+				<ul className={`${style.container} ${opened ? "" : style.closed}`} >
+					{logs.map( (log, i)=><li className={style.item} key={log + i}>{log}</li> )}
+				</ul>
+			</>;
 		}
 	}
 }

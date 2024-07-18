@@ -10,7 +10,6 @@ import TodoSearchBar from "./TodoSearchBar";
 import TodoList from "./TodoList";
 
 function TodoComponent({ resource, addLog }) {
-	console.log("rerendered");
 	const [data, setData] = useState(resource());
 	const findTitle = key=>data.find(({id})=>id === key)?.title;
 
@@ -33,7 +32,6 @@ function TodoComponent({ resource, addLog }) {
 	}
 	function modifyData(key, nextState) {
 		setData((oldData) => modifyValue(oldData, key, nextState));
-		console.log(nextState);
 		addLog(`할일 타이틀 변경 : ${findTitle(key)} => ${nextState}`);
 	}
 
