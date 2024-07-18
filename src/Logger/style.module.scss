@@ -32,6 +32,7 @@
 	position: fixed;
 	right: 20px;
 	bottom: 20px;
+	padding: 15px;
 
 	width: 80px;
 	height: 80px;
@@ -39,6 +40,11 @@
 	background-color: #24adaf;
 	box-shadow: 2px 2px 4px #0003;
 	cursor: pointer;
+}
+
+.icon {
+	width: 50px;
+	height: 50px;
 }
 
 .backdrop {
