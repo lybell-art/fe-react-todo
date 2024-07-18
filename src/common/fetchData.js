@@ -13,9 +13,12 @@ export default function fetchData(url, options) {
 			state = "error";
 			reason = err;
 		});
-	return function () {
+	return function (fallback = null) {
 		if (state === "complete") return data;
-		if (state === "error") throw reason;
+		if (state === "error") {
+			if(fallback !== null) return fallback;
+			throw reason;
+		}
 		throw promise;
 	};
 }

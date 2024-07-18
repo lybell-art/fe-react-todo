@@ -10,7 +10,7 @@ import TodoSearchBar from "./TodoSearchBar";
 import TodoList from "./TodoList";
 
 function TodoComponent({ resource, addLog }) {
-	const [data, setData] = useState(resource());
+	const [data, setData] = useState(resource([]));
 	const findTitle = (key) => data.find(({ id }) => id === key)?.title;
 
 	function addData(title) {
