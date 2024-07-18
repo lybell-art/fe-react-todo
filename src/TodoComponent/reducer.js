@@ -1,4 +1,4 @@
-function addValue(array, value, id) {
+function add(array, value, id) {
 	return [
 		...array,
 		{
@@ -8,7 +8,7 @@ function addValue(array, value, id) {
 		},
 	];
 }
-function moveValue(array, target, afterTarget) {
+function move(array, target, afterTarget) {
 	if (target === afterTarget) return;
 
 	const newData = [];
@@ -24,20 +24,20 @@ function moveValue(array, target, afterTarget) {
 	}
 	return newData;
 }
-function deleteValue(array, target) {
+function remove(array, target) {
 	return array.filter(({ id }) => id !== target);
 }
-function checkValue(array, target, checkState) {
+function check(array, target, checkState) {
 	return array.map((item) => {
 		if (item.id !== target) return item;
 		return { ...item, completed: checkState };
 	});
 }
-function modifyValue(array, target, title) {
+function modify(array, target, title) {
 	return array.map((item) => {
 		if (item.id !== target) return item;
 		return { ...item, title };
 	});
 }
 
-export { addValue, deleteValue, checkValue, modifyValue, moveValue };
+export { add, remove, check, modify, move };
