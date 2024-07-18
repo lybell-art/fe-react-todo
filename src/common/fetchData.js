@@ -16,7 +16,7 @@ export default function fetchData(url, options) {
 	return function (fallback = null) {
 		if (state === "complete") return data;
 		if (state === "error") {
-			if(fallback !== null) return fallback;
+			if (fallback !== null) return fallback;
 			throw reason;
 		}
 		throw promise;

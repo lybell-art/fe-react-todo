@@ -9,9 +9,9 @@ function TodoComponent({ resource, addLog }) {
 	const findTitle = (key) => data.find(({ id }) => id === key)?.title;
 
 	function addData(title) {
-		fetchServer.add(title).then(
-			({id})=>setData((oldData) => reducer.add(oldData, title, id))
-		);
+		fetchServer
+			.add(title)
+			.then(({ id }) => setData((oldData) => reducer.add(oldData, title, id)));
 		addLog(`할일 추가 : ${title}`);
 	}
 	function moveData(key, afterTarget) {
